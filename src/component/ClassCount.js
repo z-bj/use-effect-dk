@@ -6,15 +6,19 @@ class ClassCount extends Component {
 
     this.state = {
       count: 0,
+      name: "",
     };
   }
 
-  componentDidMount() {
-    document.title = `you have clicked ${this.state.count} times`;
-  }
+  // componentDidMount() {
+  //   document.title = `you have clicked ${this.state.count} times`;
+  // }
 
   componentDidUpdate(prevProps, prevState) {
-    document.title = `you have clicked ${this.state.count} times`;
+    if (this.state.count !== prevState.count) {
+      console.log("mise a jour du titre");
+      document.title = `you have clicked ${this.state.count} times`;
+    }
   }
 
   render() {
@@ -24,6 +28,15 @@ class ClassCount extends Component {
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
           Click
         </button>
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={(e) => {
+            this.setState({
+              name: e.target.value,
+            });
+          }}
+        />
       </div>
     );
   }
