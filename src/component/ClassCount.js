@@ -10,15 +10,8 @@ class ClassCount extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   document.title = `you have clicked ${this.state.count} times`;
-  // }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.count !== prevState.count) {
-      console.log("mise a jour du titre");
-      document.title = `you have clicked ${this.state.count} times`;
-    }
+  componentDidMount() {
+    document.title = `you have clicked ${this.state.count} times`;
   }
 
   render() {
